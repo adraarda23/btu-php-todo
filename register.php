@@ -2,18 +2,26 @@
 include 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $kullaniciadi = $_POST['kullaniciadi'];
+    $kullaniciadi = $conn->real_escape_string($_POST['kullaniciadi']);
     $kullanici_sifresi = $_POST['kullanici_sifresi'];
 
-    // Şifreyi hash'lemek güvenlik açısından önemlidir
-    $kullanici_sifresi_hash = password_hash($kullanici_sifresi, PASSWORD_DEFAULT);
+    // Kullanıcı adının zaten var olup olmadığını kontrol et
+    $sql = "SELECT * FROM kullanicilar WHERE kullaniciadi = '$kullaniciadi'";
+    $result = $conn->query($sql);
 
-    $sql = "INSERT INTO kullanicilar (kullaniciadi, kullanici_sifresi) VALUES ('$kullaniciadi', '$kullanici_sifresi_hash')";
-
-    if ($conn->query($sql) === TRUE) {
-        header("Location: login.php");
+    if ($result->num_rows > 0) {
+        $error = "Bu kullanıcı adı zaten alınmış.";
     } else {
-        $error = "Kayıt işlemi sırasında hata: " . $conn->error;
+        // Şifreyi hash'lemek güvenlik açısından önemlidir
+        $kullanici_sifresi_hash = password_hash($kullanici_sifresi, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO kullanicilar (kullaniciadi, kullanici_sifresi) VALUES ('$kullaniciadi', '$kullanici_sifresi_hash')";
+
+        if ($conn->query($sql) === TRUE) {
+            header("Location: login.php");
+        } else {
+            $error = "Kayıt işlemi sırasında hata: " . $conn->error;
+        }
     }
 }
 
