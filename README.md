@@ -2,6 +2,10 @@
 
 Bu proje, kullanıcıların yapılacaklar listelerini yönetebilmelerini sağlayan basit ve etkili bir PHP tabanlı uygulamadır.
 
+## Canlı Demo
+
+Uygulamayı canlı olarak görmek için [buraya tıklayın](http://www.ardaaydinkilinc.infinityfreeapp.com/login.php).
+
 ## Özellikler
 
 - **Kullanıcı Kaydı ve Girişi**: Kullanıcılar kayıt olabilir ve giriş yapabilir.
