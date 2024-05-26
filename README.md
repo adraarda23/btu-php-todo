@@ -29,7 +29,8 @@ Bu proje, kullanıcıların yapılacaklar listelerini yönetebilmelerini sağlay
 2. **Giriş Yapın**: Mevcut kullanıcı bilgilerinizle giriş yapın.
 3. **Görev Ekleyin**: Yapılacak yeni bir görev ekleyin.
 4. **Görevleri Yönetin**: Görevlerinizi düzenleyin veya silin.
+5. **Görevleri Paylaşın**: Görevlerinizi partnerlerinizle paylaşın.
 
-## Ekran Görüntüleri
+## Database Diyagramı
 
 ![Database Schema](https://github.com/adraarda23/btu-php-todo/assets/113470792/5ff62e1c-574f-4105-a17e-c0a2082c15b4)
