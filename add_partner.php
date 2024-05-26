@@ -1,21 +1,19 @@
 <?php
-// İlk önce veritabanı bağlantısını yapın ve gerekli oturumları başlatın
+
 include 'config.php';
 session_start();
 
-// Oturum kontrolü yapın, kullanıcı giriş yapmamışsa login sayfasına yönlendirin
+
 if (!isset($_SESSION['kullanici_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Oturumdan kullanıcı ID'sini alın
 $kullanici_id = $_SESSION['kullanici_id'];
 
-// Hata mesajı değişkenini tanımlayın
+
 $error_message = "";
 
-// Eğer form gönderildiyse ve gerekli alanlar doluysa işlemleri yapın
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_partner']) && isset($_POST['kullaniciadi'])) {
     $todo_id = $_POST['add_partner'];
     $kullaniciadi = $conn->real_escape_string($_POST['kullaniciadi']);
@@ -27,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_partner']) && isse
         $kullanici_row = $kullanici_sonuc->fetch_assoc();
         $eklenen_kullanici_id = $kullanici_row['kullanici_id'];
 
-        $ekle_sorgu = "INSERT INTO todo_listesi_kullanicilar (todo_id, kullanici_id, status) VALUES ('$todo_id', '$eklenen_kullanici_id', 'pending')";
+        $ekle_sorgu = "INSERT INTO todo_listesi_kullanicilar (todo_id, kullanici_id) VALUES ('$todo_id', '$eklenen_kullanici_id')";
         
         if ($conn->query($ekle_sorgu) === TRUE) {
             header("Location: todo_list.php");

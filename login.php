@@ -30,6 +30,7 @@ $conn->close();
 <head>
     <title>Giriş Yap</title>
     <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="bg d-flex d-f-center d-f-col">
         <h2 class="d-font-big">Hesap Bilgilerinizi Girin</h2>

@@ -75,7 +75,7 @@ $conn->close();
             <button class="tablinks" onclick="openTab(event, 'kendiListem')">Kendi Listem</button>
             <button class="tablinks" onclick="openTab(event, 'paylasilanlar')">Paylaşılanlar</button>
         </div>
-        <div id="kendiListem" class="tabcontent d-w-50 ">
+        <div id="kendiListem" class="tabcontent d-w-50 r-d-w-80">
             <form method="post" class="d-flex d-f-col d-f-center " action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <input class="d-input m-1 rm-m-l" type="text" name="baslik" placeholder="Görev Başlığı" required><br>
                 <textarea class="d-textarea m-1 rm-m-l d-h-20 d-w-100" name="paragraf" placeholder="Yapılacak Görevleri Yazınız..." required></textarea><br>
@@ -87,8 +87,8 @@ $conn->close();
             <h3 class="d-font-medium">Yapılacaklar:</h3>
             <ul class="d-w-100">
                 <?php while ($row = $result->fetch_assoc()) { ?>
-                    <li class="rm-ls d-border m-b-1">
-                        <div class="d-flex d-f-space m-1">
+                    <li class="rm-ls d-border m-b-1 r-f-col">
+                        <div class="d-flex d-f-space m-1 ">
                             <h3 class="d-font-medium d-wrap"><?php echo $row['baslik']; ?></h3>
                             <div class="d-flex d-f-col d-f-center">
                                 <div class="d-flex">
@@ -113,7 +113,7 @@ $conn->close();
             </ul>
         </div>
 
-        <div id="paylasilanlar" class="tabcontent d-w-50">
+        <div id="paylasilanlar" class="tabcontent d-w-50 r-d-w-80">
             <h3 class="d-font-medium">Paylaşılanlar:</h3>
             <ul class="d-w-100">
                 <?php while ($shared_row = $shared_result->fetch_assoc()) { ?>

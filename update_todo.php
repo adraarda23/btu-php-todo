@@ -34,6 +34,7 @@ $conn->close();
 <head>
     <title>Yapılacakları Düzenle</title>
     <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="bg">
     <div class="d-flex d-f-col d-f-center">

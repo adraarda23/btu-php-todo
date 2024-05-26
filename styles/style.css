@@ -214,6 +214,7 @@
     word-break: break-word;
 }
 
+
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
@@ -243,4 +244,137 @@
     display: none;
     padding: 6px 12px;
     border-top: none;
+}
+
+/* responsive code */
+@media screen and (max-width: 768px) {
+    .d-font{
+        color:#000000;
+        font-size: 2rem;
+    }
+    
+    .d-font-big{
+        color:#000000;
+        font-size: 4rem;
+    }
+    .d-font-medium{
+        color:#000000;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    
+    .d-font-warning{
+        color: #FF1B1C;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    
+    .d-btn-delete{
+        background-color: #FF1B1C;
+        color: #FFFFFC;
+        border: 2px solid #FF1B1C;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    
+    
+    .d-btn-delete:hover{
+        background-color: #FFFFFC;
+        color: #FF1B1C;
+        font-weight: bold;
+        border: 2px solid #FF1B1C;
+        border-radius: 5px;
+    }
+    
+    .d-btn-add{
+        background-color: #186a02;
+        color: #FFFFFC;
+        border: 2px solid #186a02;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    
+    
+    .d-btn-add:hover{
+        background-color: #FFFFFC;
+        color: #186a02;
+        font-weight: bold;
+        border: 2px solid #186a02;
+        border-radius: 5px;
+    }
+    
+    .d-btn-edit{
+        background-color: #000080;
+        color: #FFFFFC;
+        border: 2px solid #000080;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .d-btn-edit:hover{
+        background-color: #FFFFFC;
+        color: #000080;
+        font-weight: bold;
+        border: 2px solid #000080;
+        border-radius: 5px;
+    }
+    
+    .d-btn{
+        background-color: #000000;
+        color: #FFFFFC;
+        border: 2px solid #000000;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    
+    .d-btn:hover{
+        background-color: #FFFFFC;
+        color: #000;
+        font-weight: bold;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+    .d-input{
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    
+    .d-input::placeholder{
+        color:#000000;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .d-textarea{
+        border: none;
+        color: #000000;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 2rem;
+        font-weight: bold;
+        width: fit-content;
+    }
+    .d-textarea::placeholder{
+        color:#000000;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .r-d-w-80{
+        width: 80% !important;
+    }
+
+    
 }
