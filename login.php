@@ -29,15 +29,16 @@ $conn->close();
 <html>
 <head>
     <title>Giriş Yap</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    <h2>Giriş Yap</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        Kullanıcı Adı: <input type="text" name="kullaniciadi" required><br>
-        Şifre: <input type="password" name="kullanici_sifresi" required><br>
-        <input type="submit" value="Giriş Yap">
-    </form>
-    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <p>Hesabınız yok mu? <a href="register.php">Kayıt Ol</a></p>
+<body class="bg d-flex d-f-center d-f-col">
+        <h2 class="d-font-big">Hesap Bilgilerinizi Girin</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <input class="d-input m-1 rm-m-l" type="text" name="kullaniciadi" placeholder="Kullanıcı Adı" required><br>
+            <input class="d-input m-1 rm-m-l" type="password" name="kullanici_sifresi" placeholder="Şifre" required><br>
+            <input class="d-btn" type="submit" value="Giriş Yap">
+        </form>
+        <?php if (!empty($error)) echo "<p class='d-error'>$error</p>"; ?>
+        <p class="d-font">Hesabınız yok mu? <a class="rm-dec d-btn" href="register.php">Kayıt Ol</a></p>
 </body>
 </html>

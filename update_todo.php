@@ -33,14 +33,19 @@ $conn->close();
 <html>
 <head>
     <title>Yapılacakları Düzenle</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    <h2>Yapılacakları Düzenle</h2>
-    <form method="post" action="todo_list.php">
-        <input type="hidden" name="update_id" value="<?php echo $row['todo_id']; ?>">
-        Başlık: <input type="text" name="update_baslik" value="<?php echo $row['baslik']; ?>" required><br>
-        Paragraf: <textarea name="update_paragraf" required><?php echo $row['paragraf']; ?></textarea><br>
-        <input type="submit" value="Güncelle">
-    </form>
+<body class="bg">
+    <div class="d-flex d-f-col d-f-center">
+        <h2 class="d-font-big">Yapılacakları Düzenle</h2>
+        <form method="post" class="d-flex d-f-col" action="todo_list.php">
+            <input type="hidden"  name="update_id" value="<?php echo $row['todo_id']; ?>">
+            <label class="d-font-medium" for="update_baslik">Başlık</label>
+            <input type="text" id="update_baslik" class="d-input"  name="update_baslik" value="<?php echo $row['baslik']; ?>" required><br>
+            <label class="d-font-medium" for="update_paragraf">Paragraf</label>
+            <textarea class="d-textarea" id="update_paragraf" name="update_paragraf" required><?php echo $row['paragraf']; ?></textarea><br>
+            <input type="submit" class="d-btn-edit" value="Güncelle">
+        </form>
+    </div>
 </body>
 </html>

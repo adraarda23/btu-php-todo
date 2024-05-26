@@ -9,7 +9,6 @@ if (!isset($_SESSION['kullanici_id'])) {
 
 $kullanici_id = $_SESSION['kullanici_id'];
 
-// Yeni yapılacak ekleme
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['baslik']) && isset($_POST['paragraf'])) {
     $baslik = $conn->real_escape_string($_POST['baslik']);
     $paragraf = $conn->real_escape_string($_POST['paragraf']);
@@ -20,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['baslik']) && isset($_P
     }
 }
 
-// Yapılacak güncelleme
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_id'])) {
     $update_id = $_POST['update_id'];
     $update_baslik = $conn->real_escape_string($_POST['update_baslik']);
@@ -32,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_id'])) {
     }
 }
 
-// Yapılacak silme
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
     $delete_id = $_POST['delete_id'];
 
@@ -52,31 +49,49 @@ $conn->close();
 <html>
 <head>
     <title>Yapılacaklar Listesi</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    <h2>Yapılacaklar Listesi</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        Başlık: <input type="text" name="baslik" required><br>
-        Paragraf: <textarea name="paragraf" required></textarea><br>
-        <input type="submit" value="Ekle">
-    </form>
+<body class="bg">
+    <div class="d-flex d-f-col d-f-center">
 
-    <h3>Yapılacaklar:</h3>
-    <ul>
-        <?php while ($row = $result->fetch_assoc()) { ?>
-            <li>
-                <strong><?php echo $row['baslik']; ?></strong>: <?php echo $row['paragraf']; ?>
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" style="display:inline;">
-                    <input type="hidden" name="delete_id" value="<?php echo $row['todo_id']; ?>">
-                    <input type="submit" value="Sil">
-                </form>
-                <form method="post" action="update_todo.php" style="display:inline;">
-                    <input type="hidden" name="update_id" value="<?php echo $row['todo_id']; ?>">
-                    <input type="submit" value="Düzenle">
-                </form>
+        <h2 class="d-font-big">Yapılacaklar Listesi</h2>
+        
+
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <input class="d-input m-1 rm-m-l" type="text" name="baslik" placeholder="Görev Başlığı" required><br>
+                <textarea class="d-textarea m-1 rm-m-l" name="paragraf" placeholder="Yapılacak Görevi Yazınız..." required></textarea><br>
+                <div class="d-flex d-f-space">
+                <input class="d-btn" type="submit" value="Ekle">
+                <a href="logout.php" class="d-btn-delete rm-dec">Çıkış Yap</a>
+        </div>
+            </form>
+
+        <h3 class="d-font-medium">Yapılacaklar:</h3>
+        <ul class="d-w-30">
+            <?php while ($row = $result->fetch_assoc()) { ?>
+                
+            <li class="rm-ls d-border m-b-1">
+                <div class="d-flex d-f-space m-1">
+                   <h3 class="d-font-medium d-wrap"><?php  echo $row['baslik']; ?></h3>
+                    <div class="btn-group d-flex">
+                        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                            <input type="hidden" name="delete_id" value="<?php echo $row['todo_id']; ?>">
+                            <input type="submit" class="d-btn-delete m-r-1" value="Sil">
+                        </form>
+                        <form method="post" action="update_todo.php">
+                            <input type="hidden" name="update_id" value="<?php echo $row['todo_id']; ?>">
+                            <input type="submit" class="d-btn-edit" value="Düzenle">
+                        </form>
+                    </div>
+                </div>
+                
+                <p class="d-font d-wrap"><?php echo $row['paragraf']; ?></p>
+                
+                
             </li>
-        <?php } ?>
-    </ul>
-    <a href="logout.php">Çıkış Yap</a>
+            <?php } ?>
+        </ul>
+        
+    </div>
 </body>
 </html>

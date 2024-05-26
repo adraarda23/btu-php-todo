@@ -32,14 +32,21 @@ $conn->close();
 <html>
 <head>
     <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    <h2>Kayıt Ol</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        Kullanıcı Adı: <input type="text" name="kullaniciadi" required><br>
-        Şifre: <input type="password" name="kullanici_sifresi" required><br>
-        <input type="submit" value="Kayıt Ol">
-    </form>
-    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+<body class="bg">
+    <div class="d-flex d-f-col d-f-center">
+        <h2 class="d-font-big">Kayıt Ol</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <input class="d-input m-1 rm-m-l" type="text" name="kullaniciadi" placeholder="Kullanıcı Adı" required><br>
+            <input class="d-input m-1 rm-m-l" type="password" name="kullanici_sifresi" placeholder="Şifre" required><br>
+            <div class="d-flex d-f-space">
+                <input class="d-btn" type="submit" value="Kayıt Ol">
+                <a href="login.php" class="d-font">Geri Dön</a>
+            </div>
+        </form>
+        <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+        
+    </div>
 </body>
 </html>
