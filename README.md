@@ -5,6 +5,8 @@ Bu proje, kullanıcıların yapılacaklar listelerini yönetebilmelerini sağlay
 ## Canlı Demo
 
 Uygulamayı canlı olarak görmek için [buraya tıklayın](http://www.ardaaydinkilinc.infinityfreeapp.com/login.php).
+## Youtube Linki
+Uygulamanın kullanım videosunu izlemek için [buraya tıklayın](https://www.youtube.com/watch?v=Ygk-7B-MFSw)
 
 ## Özellikler
 
